@@ -1,0 +1,33 @@
+.nav {
+  max-width: 100%;
+  background-color: #def1ff;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.nav__title-container {
+  display: flex;
+  align-items: center;
+}
+
+.nav__title {
+  margin: 10px 20px 10px 0;
+}
+
+.nav__trigger-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 350px;
+  margin-right: 30px;
+}
+
+.nav__trigger {
+  margin-right: 5px;
+}
+
+.nav__label {
+  margin-right: 10px;
+  width: 160px;
+}

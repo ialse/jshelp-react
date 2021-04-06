@@ -1,0 +1,19 @@
+.block {
+  background: #f5f2f0;
+  border-radius: 5px;
+  padding: 10px;
+  width: 400px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+@import './__image/block__image';
+@import './__info/block__info';
+@import './__link/block__link';
+@import './__name/block__name';
+@import './__paragraph/block__paragraph';
+@import './__string/block__string';
+@import './__title/block__title';
+@import './_hidden/block_hidden';
+@import './_size/_big/block_size_big';
+@import './_size/_middle/block_size_middle';

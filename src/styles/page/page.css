@@ -1,0 +1,21 @@
+.page {
+  font-family: 'Inter', 'Arial', sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  max-width: 1240px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.embedFooter {
+  display: none;
+}
+
+.javascript {
+  /*list-style-type: none;*/
+  padding: 0 0 0 25px;
+}

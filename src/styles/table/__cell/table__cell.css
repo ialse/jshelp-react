@@ -1,0 +1,8 @@
+.table__cell {
+  padding: 3px;
+  border: 1px solid #ccc;
+  vertical-align: top;
+}
+
+@import './_left/table__cell_left';
+@import './_right/table__cell_right';

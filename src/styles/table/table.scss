@@ -1,0 +1,9 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #ccc;
+}
+
+@import './__cell/table__cell';
+@import './__accent/table__accent';

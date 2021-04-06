@@ -1,0 +1,9 @@
+$font-stack: Helvetica, sans-serif;
+$font-color: #000;
+
+.header {
+  text-align: center;
+  width: 100%;
+  color: $font-color;
+  font-family: $font-stack;
+}
