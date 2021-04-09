@@ -1,4 +1,10 @@
+import { Button } from '@material-ui/core';
+import SendIcon from '@material-ui/icons/Send';
+import useStyles from '../../../utils/myHooks';
+
 function Webpack() {
+  const classes = useStyles();
+
   return (
     <section className="block block_size_big block_webpack">
       <h2 className="block__title">Команды Webpack</h2>
@@ -115,8 +121,10 @@ function Webpack() {
           </tr>
         </tbody>
       </table>
-      <a href="#" className="block__link" target="blank">
-        Подробнее
+      <a href="https://habr.com/ru/post/524260/" className="block__link" target="blank">
+        <Button variant="contained" color="primary" endIcon={<SendIcon />} className={classes.button}>
+          Подробнее
+        </Button>
       </a>
     </section>
   );

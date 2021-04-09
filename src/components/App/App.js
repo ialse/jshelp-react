@@ -4,8 +4,26 @@ import Main from '../Main/Main';
 import { useEffect, useState } from 'react';
 
 function App() {
-  const [stateCheckJS, setStateCheckJS] = useState({});
-  const [stateCheckEnv, setStateCheckEnv] = useState({});
+  const [stateCheckJS, setStateCheckJS] = useState({
+    jsAll: true,
+    es6: true,
+    prom: true,
+    proto: true,
+    expr: true,
+    toolsReact: true,
+    operatorThis: true,
+    arrays: true,
+    numbers: true,
+    strings: true,
+    typeData: true,
+    operators: true,
+  });
+  const [stateCheckEnv, setStateCheckEnv] = useState({
+    envAll: true,
+    git: true,
+    webpack: true,
+    mongo: true,
+  });
 
   function handleCheckJS(elem) {
     setStateCheckJS({ ...stateCheckJS, [elem.name]: elem.checked ? true : false });
@@ -35,28 +53,6 @@ function App() {
       const userCheckEnv = JSON.parse(localStorage.getItem('userCheckEnv'));
       setStateCheckJS(userCheckJS);
       setStateCheckEnv(userCheckEnv);
-    } else {
-      setStateCheckJS({
-        jsAll: true,
-        es6: true,
-        prom: true,
-        proto: true,
-        expr: true,
-        toolsReact: true,
-        operatorThis: true,
-        arrays: true,
-        numbers: true,
-        strings: true,
-        typeData: true,
-        operators: true,
-      });
-
-      setStateCheckEnv({
-        envAll: true,
-        git: true,
-        webpack: true,
-        mongo: true,
-      });
     }
   }, []);
 

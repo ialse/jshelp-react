@@ -1,4 +1,10 @@
+import { Button } from '@material-ui/core';
+import SendIcon from '@material-ui/icons/Send';
+import useStyles from '../../../utils/myHooks';
+
 function Git() {
+  const classes = useStyles();
+
   return (
     <section className="block block_size_big block_git">
       <h2 className="block__title">Команды Git</h2>
@@ -160,8 +166,10 @@ function Git() {
           </tr>
         </tbody>
       </table>
-      <a href="#" className="block__link" target="blank">
-        Подробнее
+      <a href="https://githowto.com/ru" className="block__link" target="blank">
+        <Button variant="contained" color="primary" endIcon={<SendIcon />} className={classes.button}>
+          Подробнее
+        </Button>
       </a>
     </section>
   );
