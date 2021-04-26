@@ -1,3 +1,5 @@
+import ButtonLink from '../../ButtonLink/ButtonLink';
+
 function OperatorThis() {
   return (
     <section className="block block_size_big">
@@ -24,9 +26,7 @@ function OperatorThis() {
 
         <p className="block__code"></p>
       </div>
-      <a href="https://habr.com/ru/post/464163/" className="block__link" target="blank">
-        Подробнее
-      </a>
+      <ButtonLink url="https://habr.com/ru/post/464163/" />
     </section>
   );
 }
