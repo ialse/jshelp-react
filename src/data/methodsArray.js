@@ -1,4 +1,4 @@
-export const rows = [
+export const rowsData = [
   {
     method: '.length',
     description: 'Длина массива (это свойство, не метод)',
