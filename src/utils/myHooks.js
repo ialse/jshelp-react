@@ -8,6 +8,9 @@ const useStyles = makeStyles((theme) => ({
   table: {
     backgroundColor: '#FAF8F7',
   },
+  cell: {
+    whiteSpace: 'nowrap',
+  },
 }));
 
 export default useStyles;
