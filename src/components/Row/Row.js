@@ -16,14 +16,16 @@ function Row({ row }) {
         <TableCell className={classes.cell}>{row.method}</TableCell>
         <TableCell>{row.description}</TableCell>
         <TableCell>
-          {row.example && (
+          {row.example ? (
             <IconButton aria-label="expand row" size="small">
               {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
             </IconButton>
+          ) : (
+            ''
           )}
         </TableCell>
       </TableRow>
-      {row.example && (
+      {row.example ? (
         <TableRow>
           <TableCell style={{ padding: 0 }} colSpan={6}>
             <Collapse in={open} timeout="auto" unmountOnExit>
@@ -31,7 +33,7 @@ function Row({ row }) {
             </Collapse>
           </TableCell>
         </TableRow>
-      )}
+      ) : null}
     </>
   );
 }

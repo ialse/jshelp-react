@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './Navigation.scss';
 import { makeStyles } from '@material-ui/core/styles';
 import { Checkbox, FormControlLabel } from '@material-ui/core';
+import { toggleBlock, toggleAllBlock } from '../../store/store';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,20 +15,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Navigation({ stateCheckJS, stateCheckEnv, handleCheckJS, handleCheckAll, handleCheckEnv }) {
+function Navigation() {
   const classes = useStyles();
+  const state = useSelector((state) => state);
+  const stateCheckboxJS = useSelector((state) => state.blockJS);
+  const stateCheckboxEnv = useSelector((state) => state.blockEnv);
+  const dispatch = useDispatch();
 
-  function handleClickJS(e) {
-    handleCheckJS(e.target);
+  function handleClickBlock(e) {
+    dispatch(toggleBlock(e.target.name));
   }
 
   function handleClickAll(e) {
-    handleCheckAll(e.target);
+    dispatch(toggleAllBlock(e.target.name));
   }
 
-  function handleClickEnv(e) {
-    handleCheckEnv(e.target);
-  }
+  useEffect(() => {
+    localStorage.setItem('userChoise', JSON.stringify(state));
+  }, [state]);
 
   return (
     <nav className="nav">
@@ -40,7 +46,7 @@ function Navigation({ stateCheckJS, stateCheckEnv, handleCheckJS, handleCheckAll
                 color="primary"
                 size="small"
                 name="jsAll"
-                checked={stateCheckJS.jsAll}
+                checked={stateCheckboxJS.jsAll}
                 onClick={handleClickAll}
               />
             }
@@ -54,9 +60,24 @@ function Navigation({ stateCheckJS, stateCheckEnv, handleCheckJS, handleCheckAll
               <Checkbox
                 color="primary"
                 size="small"
+                name="aboutRedux"
+                checked={stateCheckboxJS.aboutRedux}
+                onClick={handleClickBlock}
+                className={classes.checkBox}
+              />
+            }
+            label="Redux"
+            className={classes.root}
+          />
+
+          <FormControlLabel
+            control={
+              <Checkbox
+                color="primary"
+                size="small"
                 name="es6"
-                checked={stateCheckJS.es6}
-                onClick={handleClickJS}
+                checked={stateCheckboxJS.es6}
+                onClick={handleClickBlock}
                 className={classes.checkBox}
               />
             }
@@ -70,8 +91,8 @@ function Navigation({ stateCheckJS, stateCheckEnv, handleCheckJS, handleCheckAll
                 color="primary"
                 size="small"
                 name="prom"
-                checked={stateCheckJS.prom}
-                onClick={handleClickJS}
+                checked={stateCheckboxJS.prom}
+                onClick={handleClickBlock}
                 className={classes.checkBox}
               />
             }
@@ -85,8 +106,8 @@ function Navigation({ stateCheckJS, stateCheckEnv, handleCheckJS, handleCheckAll
                 color="primary"
                 size="small"
                 name="proto"
-                checked={stateCheckJS.proto}
-                onClick={handleClickJS}
+                checked={stateCheckboxJS.proto}
+                onClick={handleClickBlock}
                 className={classes.checkBox}
               />
             }
@@ -100,8 +121,8 @@ function Navigation({ stateCheckJS, stateCheckEnv, handleCheckJS, handleCheckAll
                 color="primary"
                 size="small"
                 name="operatorThis"
-                checked={stateCheckJS.operatorThis}
-                onClick={handleClickJS}
+                checked={stateCheckboxJS.operatorThis}
+                onClick={handleClickBlock}
                 className={classes.checkBox}
               />
             }
@@ -115,8 +136,8 @@ function Navigation({ stateCheckJS, stateCheckEnv, handleCheckJS, handleCheckAll
                 color="primary"
                 size="small"
                 name="expr"
-                checked={stateCheckJS.expr}
-                onClick={handleClickJS}
+                checked={stateCheckboxJS.expr}
+                onClick={handleClickBlock}
                 className={classes.checkBox}
               />
             }
@@ -130,8 +151,8 @@ function Navigation({ stateCheckJS, stateCheckEnv, handleCheckJS, handleCheckAll
                 color="primary"
                 size="small"
                 name="toolsReact"
-                checked={stateCheckJS.toolsReact}
-                onClick={handleClickJS}
+                checked={stateCheckboxJS.toolsReact}
+                onClick={handleClickBlock}
                 className={classes.checkBox}
               />
             }
@@ -145,8 +166,8 @@ function Navigation({ stateCheckJS, stateCheckEnv, handleCheckJS, handleCheckAll
                 color="primary"
                 size="small"
                 name="arrays"
-                checked={stateCheckJS.arrays}
-                onClick={handleClickJS}
+                checked={stateCheckboxJS.arrays}
+                onClick={handleClickBlock}
                 className={classes.checkBox}
               />
             }
@@ -160,8 +181,8 @@ function Navigation({ stateCheckJS, stateCheckEnv, handleCheckJS, handleCheckAll
                 color="primary"
                 size="small"
                 name="numbers"
-                checked={stateCheckJS.numbers}
-                onClick={handleClickJS}
+                checked={stateCheckboxJS.numbers}
+                onClick={handleClickBlock}
                 className={classes.checkBox}
               />
             }
@@ -175,8 +196,8 @@ function Navigation({ stateCheckJS, stateCheckEnv, handleCheckJS, handleCheckAll
                 color="primary"
                 size="small"
                 name="strings"
-                checked={stateCheckJS.strings}
-                onClick={handleClickJS}
+                checked={stateCheckboxJS.strings}
+                onClick={handleClickBlock}
                 className={classes.checkBox}
               />
             }
@@ -190,8 +211,8 @@ function Navigation({ stateCheckJS, stateCheckEnv, handleCheckJS, handleCheckAll
                 color="primary"
                 size="small"
                 name="typeData"
-                checked={stateCheckJS.typeData}
-                onClick={handleClickJS}
+                checked={stateCheckboxJS.typeData}
+                onClick={handleClickBlock}
                 className={classes.checkBox}
               />
             }
@@ -205,8 +226,8 @@ function Navigation({ stateCheckJS, stateCheckEnv, handleCheckJS, handleCheckAll
                 color="primary"
                 size="small"
                 name="operators"
-                checked={stateCheckJS.operators}
-                onClick={handleClickJS}
+                checked={stateCheckboxJS.operators}
+                onClick={handleClickBlock}
                 className={classes.checkBox}
               />
             }
@@ -226,7 +247,7 @@ function Navigation({ stateCheckJS, stateCheckEnv, handleCheckJS, handleCheckAll
                 color="primary"
                 size="small"
                 name="envAll"
-                checked={stateCheckJS.envAll}
+                checked={stateCheckboxEnv.envAll}
                 onClick={handleClickAll}
               />
             }
@@ -241,8 +262,8 @@ function Navigation({ stateCheckJS, stateCheckEnv, handleCheckJS, handleCheckAll
                 color="primary"
                 size="small"
                 name="git"
-                checked={stateCheckEnv.git}
-                onClick={handleClickEnv}
+                checked={stateCheckboxEnv.git}
+                onClick={handleClickBlock}
                 className={classes.checkBox}
               />
             }
@@ -256,8 +277,8 @@ function Navigation({ stateCheckJS, stateCheckEnv, handleCheckJS, handleCheckAll
                 color="primary"
                 size="small"
                 name="webpack"
-                checked={stateCheckEnv.webpack}
-                onClick={handleClickEnv}
+                checked={stateCheckboxEnv.webpack}
+                onClick={handleClickBlock}
                 className={classes.checkBox}
               />
             }
@@ -271,8 +292,8 @@ function Navigation({ stateCheckJS, stateCheckEnv, handleCheckJS, handleCheckAll
                 color="primary"
                 size="small"
                 name="mongo"
-                checked={stateCheckEnv.mongo}
-                onClick={handleClickEnv}
+                checked={stateCheckboxEnv.mongo}
+                onClick={handleClickBlock}
                 className={classes.checkBox}
               />
             }

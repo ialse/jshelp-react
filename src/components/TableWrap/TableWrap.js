@@ -1,12 +1,9 @@
-import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
-import SendIcon from '@material-ui/icons/Send';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
 import useStyles from '../../utils/myHooks';
-import useStyles2 from '../../utils/myHooks2';
 import Row from '../Row/Row';
 
 function TableWrap({ rows }) {
   const classes = useStyles();
-  const classes2 = useStyles2();
 
   return (
     <TableContainer component={Paper}>
