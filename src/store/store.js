@@ -6,8 +6,8 @@ const TOGGLE_BLOCK = 'TOGGLE_BLOCK';
 const TOGGLE_ALL_BLOCK = 'TOGGLE_ALL_BLOCK';
 
 function reducer(state = initialState, action) {
-  const isJS = state.blockJS.hasOwnProperty(action.on);
-  const isEnv = state.blockEnv.hasOwnProperty(action.on);
+  const isJS = action.on in state.blockJS;
+  const isEnv = action.on in state.blockEnv;
   const block = isJS ? 'blockJS' : isEnv ? 'blockEnv' : null;
 
   switch (action.type) {
